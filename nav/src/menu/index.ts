@@ -4,7 +4,7 @@ import { MenuOptions } from './schema';
 import { apply, filter, move, Rule, template, url, branchAndMerge, Tree, SchematicContext } from '@angular-devkit/schematics';
 import { normalize } from '@angular-devkit/core';
 import { addDeclarationToNgModule } from '../utils/ng-module-utils';
-import { findModuleFromOptions } from '@schematics/angular/utility/find-module';
+import { findModuleFromOptions } from '../schematics-angular-utils/find-module';
 
 const stringUtils = { dasherize, classify };
 

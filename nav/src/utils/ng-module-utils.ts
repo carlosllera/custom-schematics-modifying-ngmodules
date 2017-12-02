@@ -1,10 +1,23 @@
-import { ModuleOptions, buildRelativePath } from "@schematics/angular/utility/find-module";
-import { Rule, Tree, SchematicsException } from "@angular-devkit/schematics";
-import { dasherize, classify } from "@angular-devkit/core";
-import { addDeclarationToModule, addExportToModule } from "@schematics/angular/utility/ast-utils";
-import { InsertChange } from "@schematics/angular/utility/change";
+
+// Option A: Directly referencing the private APIs
+// import { ModuleOptions, buildRelativePath } from "@schematics/angular/utility/find-module";
+// import { Rule, Tree, SchematicsException } from "@angular-devkit/schematics";
+// import { dasherize, classify } from "@angular-devkit/core";
+// import { addDeclarationToModule, addExportToModule } from "@schematics/angular/utility/ast-utils";
+// import { InsertChange } from "@schematics/angular/utility/change";
+
+// Option B: Using a fork of the private APIs b/c they can change
+
+import { Rule, Tree, SchematicsException } from '@angular-devkit/schematics';
 import { AddToModuleContext } from './add-to-module-context';
 import * as ts from 'typescript';
+import { dasherize, classify } from '@angular-devkit/core';
+
+// Referencing forked and copied private APIs 
+import { ModuleOptions, buildRelativePath } from '../schematics-angular-utils/find-module';
+import { addDeclarationToModule, addExportToModule } from '../schematics-angular-utils/ast-utils';
+import { InsertChange } from '../schematics-angular-utils/change';
+
 
 const stringUtils = { dasherize, classify };
 
